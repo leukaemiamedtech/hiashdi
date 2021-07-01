@@ -47,7 +47,7 @@ HIAS devices and applications are also the **historical data consumers**. Device
 
 # GETTING STARTED
 
-Ready to get started ? Head over to the [Getting Started guide](docs/getting-started.md) for instructions on how to download/install and setup the HIAS Historical Data Interface.
+Ready to get started ? Head over to the [Getting Started guide](docs/index.md) for instructions on how to download/install and setup the HIAS Historical Data Interface.
 
 &nbsp;
 
