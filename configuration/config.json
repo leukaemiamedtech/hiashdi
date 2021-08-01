@@ -1,1 +1,74 @@
-{}
+{
+    "acceptTypes": [
+        "application/json",
+        "text/plain"
+    ],
+    "contentType": "application/json",
+    "contentTypes": [
+        "application/json",
+        "text/plain"
+    ],
+    "endpoints": {
+        "locations_url": "/v1/locations",
+        "zones_url": "/v1/zones",
+        "statuses_url": "/v1/data",
+        "commands_url": "/v1/types",
+        "subscriptions_url": "/v1/subscriptions"
+    },
+    "methods": [
+        "POST",
+        "GET",
+        "PUT",
+        "PATCH",
+        "DELETE"
+    ],
+    "successMessage": {
+        "200": {
+            "Description": "200 OK: Request successful"
+        },
+        "201": {
+            "Description": "200 Created: Resource Created"
+        },
+        "204": {
+            "Description": "204: Request successful, no content"
+        }
+    },
+    "errorMessages": {
+        "400b": {
+            "Error": "ParseError",
+            "Description": "400 Parse Error: Incoming JSON payload cannot be parsed"
+        },
+        "400p": {
+            "Error": "BadRequest",
+            "Description": "400 Bad Request: Error in URL parameters or payload"
+        },
+        "404": {
+            "Error": "NotFound",
+            "Description": "404 Not Found: Resource identified by the request is not found"
+        },
+        "405": {
+            "Error": "MethodNotAlowed",
+            "Description": "405 Method Not Allowed: Requested method not supported"
+        },
+        "406": {
+            "Error": "NotAcceptable",
+            "Description": "406 Not Acceptable: Accepted MIME types: application/json, text/plain"
+        },
+        "409": {
+            "Error": "TooManyResults",
+            "Description": "409 Too Many Results: Request may refer to several resources"
+        },
+        "413": {
+            "Error": "NoResourceAvailable",
+            "Description": "413 No Resource Available: Attemp to exceed spatial index limit results"
+        },
+        "415": {
+            "Error": "UnsupportedMediaType",
+            "Description": "415 Unsupported Media Type: Request media type not supported"
+        },
+        "501": {
+            "Error": "NotImplemented",
+            "Description": "501 Not Implemented: Request not supported"
+        }
+    }
+}
