@@ -1,8 +1,7 @@
 # Asociación de Investigacion en Inteligencia Artificial Para la Leucemia Peter Moss
-# HIAS - Hospital Intelligent Automation Server
-## HIASHDI - HIAS Historical Data Interface
+# HIASHDI - HIAS Historical Data Interface
 
-![HIAS - Hospital Intelligent Automation Server](assets/images/HIASHDI.jpg)
+![HIASHDI - HIAS Historical Data Interface](assets/images/HIASHDI.jpg)
 
 [![CURRENT RELEASE](https://img.shields.io/badge/CURRENT%20RELEASE-1.0.0-blue.svg)](https://github.com/AIIAL/HIASHDI/tree/1.0.0) [![UPCOMING RELEASE](https://img.shields.io/badge/CURRENT%20DEV%20BRANCH-2.0.0-blue.svg)](https://github.com/AIIAL/HIASHDI/tree/2.0.0) [![Contributions Welcome!](https://img.shields.io/badge/Contributions-Welcome-lightgrey.svg)](CONTRIBUTING.md)  [![Issues](https://img.shields.io/badge/Issues-Welcome-lightgrey.svg)](issues)
 
