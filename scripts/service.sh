@@ -1,36 +1,36 @@
 #!/bin/bash
 
-PRN="HIAS Historical Data Interface"
-PRURL="HIAS-Historical-Data-Interface"
-PRPYPATH="HIAS/components/hiashdi/hiashdi.py"
-FMSG="- $PRN service installation terminated"
+FMSG="HIASHDI Historical Data Broker installation terminated!"
 
-read -p "? This script will install the $PRN service on your device. Are you ready (y/n)? " cmsg
+printf -- 'This script will install the HIASHDI Historical Data Broker service on HIAS Core.\n';
 
-if [ "$cmsg" = "Y" -o "$cmsg" = "y" ]; then
-	echo "- Installing $PRN service"
-	sudo touch "/lib/systemd/system/$PRURL.service"
-	echo "[Unit]" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "Description=$PRN service" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "After=multi-user.target" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "After=HIASCDI.service" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "[Service]" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "User=$USER" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "Type=simple" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "Restart=on-failure" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "ExecStart=/usr/bin/python3 /home/$USER/$PRPYPATH" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "[Install]" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "WantedBy=multi-user.target" | sudo tee -a "/lib/systemd/system/$PRURL.service"
-	echo "" | sudo tee -a "/lib/systemd/system/$PRURL.service"
+read -p "Proceed (y/n)? " proceed
+if [ "$proceed" = "Y" -o "$proceed" = "y" ]; then
 
-	sudo systemctl enable $PRURL.service
-	sudo systemctl start $PRURL.service
+        printf -- 'Installing HIASHDI Historical Data Broker service.\n';
+        sudo touch /lib/systemd/system/HIASHDI.service
+        echo "[Unit]" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "Description=HIASHDI service" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "After=multi-user.target" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "After=HIASCDI.service" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "[Service]" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "User=$USER" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "Type=simple" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "Restart=on-failure" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "ExecStart=/home/$USER/HIAS-Core/components/hiashdi/scripts/run.sh" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "[Install]" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "WantedBy=multi-user.target" | sudo tee -a /lib/systemd/system/HIASHDI.service
+        echo "" | sudo tee -a /lib/systemd/system/HIASHDI.service
 
-	echo "- Installed $PRN service!";
-	exit 0
+        sudo systemctl enable HIASHDI.service
+
+        sudo chmod 744 /home/$USER/HIAS-Core/components/hiashdi/scripts/run.sh
+
+        printf -- '\033[32m SUCCESS: HIASHDI Historical Data Broker service installed! \033[0m\n';
+
 else
-	echo $FMSG;
-	exit 1
+    echo $FMSG;
+    exit
 fi
